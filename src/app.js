@@ -34,13 +34,12 @@ if(!fs.existsSync(dir)){
 
 let app = express();
 
-app.use(
-    bodyParser.raw({ type: 'text/plain', limit: 1024 * 1024 * 10 }));
+app.use(bodyParser.raw({ type: 'text/plain', limit: 1024 * 1024 * 10 }));
 
 // POST
 app.post('/:id/log/', (req,res) => {
     let logname = req.params.id;
-
+    console.log(req.body.toString())
     LogService(dir, logname)
         .write(req.body)
         .then(()=> {

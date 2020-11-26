@@ -31,7 +31,6 @@ let LogService = (baseDir, id) => {
                 if(err) dfd.reject(err);
                 else {
                     dfd.resolve();
-                    console.log(buffer);
                 }
             })
 
