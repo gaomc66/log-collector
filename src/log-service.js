@@ -9,7 +9,6 @@ let generateFileName = (baseDir, id) => {
         { year: date.getFullYear(), month: date.getMonth()+1, day: date.getDate() });
 
     let filename = id + '-' + dateSuffix;
-        console.log(filename)
     return _.template("<%= dir %>/<%= filename %>.log")({ dir: baseDir, filename: filename });
 }
 
@@ -30,7 +29,10 @@ let LogService = (baseDir, id) => {
 
             fs.appendFile(name, buffer, (err) => {
                 if(err) dfd.reject(err);
-                else dfd.resolve();
+                else {
+                    dfd.resolve();
+                    console.log(buffer);
+                }
             })
 
             return dfd.promise;

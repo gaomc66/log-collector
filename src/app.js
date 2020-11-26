@@ -9,7 +9,6 @@ import yargs from 'yargs';
 
 // Get argv from command
 const argv = yargs(process.argv.slice(2)).argv;
-console.log(argv);
 
 // Setup port and dir
 let port, dir;
@@ -47,8 +46,6 @@ app.post('/:id/log/', (req,res) => {
         .then(()=> {
             res.send()
         });
-
-    console.log(`log created : ${logname}`);
 
 });
 
